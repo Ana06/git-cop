@@ -7,7 +7,7 @@ module Git
         def self.defaults
           {
             enabled: true,
-            whitelist: %w[Fixed Added Updated Removed Refactored]
+            whitelist: %w[Fix Add Update Remove Refactor]
           }
         end
 

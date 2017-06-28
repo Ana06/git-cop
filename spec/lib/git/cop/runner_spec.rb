@@ -7,7 +7,7 @@ RSpec.describe Git::Cop::Runner, :temp_dir, :git_repo do
     {
       commit_body_leading_space: {enabled: true},
       commit_subject_length: {enabled: true, length: 50},
-      commit_subject_prefix: {enabled: true, whitelist: %w[Fixed Added Updated Removed Refactored]},
+      commit_subject_prefix: {enabled: true, whitelist: %w[Fix Add Update Remove Refactor]},
       commit_subject_suffix: {enabled: true, whitelist: ["."]}
     }
   end
