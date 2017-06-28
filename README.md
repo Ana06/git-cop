@@ -125,9 +125,12 @@ The default configuration is as follows:
       :whitelist:
         - Fix
         - Add
+        - Change
         - Update
         - Remove
         - Refactor
+        - Enable
+        - Disable
     :commit_subject_suffix:
       :enabled: true
       :whitelist:
@@ -180,7 +183,7 @@ Here is an example workflow, using the gem defaults where errors would be raised
 
     d0f9bf40a09d10618bcf8a38a5ddd3bcf12fd550 (Brooke Kuhlmann, 3 seconds ago): This is a bogus commit message that is also terribly long and will word wrap
       Commit Subject Length: Invalid length. Use 72 characters or less.
-      Commit Subject Prefix: Invalid prefix. Use: "Fix", "Add", "Update", "Remove", "Refactor".
+      Commit Subject Prefix: Invalid prefix. Use: "Fix", "Add", "Change", "Update", "Remove", "Refactor", "Enable", "Disable".
       Commit Subject Suffix: Invalid suffix. Use: ".".
 
     3 issues detected.
@@ -351,10 +354,15 @@ imperative mode. The whitelist *is* case sensitive. The default whitelist consis
 following prefixes:
 
 - *Fix* - Existing code that has been fixed.
-- *Remove* - Code that was once added and is now removed.
 - *Add* - New code that is an enhancement, feature, etc.
+- *Change* - Something got changed.
 - *Update* - Existing code that has been modified.
+- *Remove* - Code that was once added and is now removed.
 - *Refactor* - Existing code that has been cleaned up and does not change functionality.
+- *Enable* - Enable a configuration option, such as a [Rubocop](https://github.com/bbatsov/rubocop)
+cop or a [HAML-Lint](https://github.com/brigade/haml-lint) linter.
+- *Disable* - Disable a configuration option, such as a [Rubocop](https://github.com/bbatsov/rubocop)
+cop or a [HAML-Lint](https://github.com/brigade/haml-lint) linter
 
 In practice, using a prefix other than what has been detailed above to explain *what* is being
 committed is never needed. This whitelist is not only short and easy to remember but also has the
