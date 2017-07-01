@@ -117,6 +117,8 @@ The default configuration is as follows:
         - everyone knows
         - however
         - easy
+    :commit_body_present:
+      :enabled: false
     :commit_subject_length:
       :enabled: true
       :length: 72
@@ -327,6 +329,14 @@ insensitve as well. Example:
 
     Necessary to fix due to a bug detected in production. The included implentation fixes the bug
     and provides the missing spec to ensure this doesn't happen again.
+
+### Commit Body Present
+
+| Enabled |  Defaults  |
+|---------|------------|
+| false   | none       |
+
+Checks that there is always a commit body. A commit with only empty characters (whitespace, carriage returns, etc.) is also considered to be empty.
 
 ### Commit Subject Length
 
