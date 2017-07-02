@@ -6,18 +6,25 @@ module Git
       class CommitBodyPresent < Abstract
         def self.defaults
           {
-            enabled: false
+            enabled: false,
+            minimum: 1
           }
         end
 
         def valid?
-          !commit.body.gsub(/\s/, "").empty?
+          valid_lines = commit.body_lines.reject { |line| line.match?(/^\s*$/) }
+          valid_lines.size >= minimum
+        end
+
+        def minimum
+          settings.fetch :minimum
         end
 
         def error
           return "" if valid?
 
-          "Empty commit body."
+          "Write at least #{minimum} non-empty line#{"s" if minimum > 1} in" \
+          " your commit body."
         end
       end
     end
