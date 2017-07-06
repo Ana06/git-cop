@@ -198,13 +198,12 @@ variable. Most CI build servers respect and enable this variable. If your CI ser
 want to make sure you have `CI=true` set in your environment.
 
 Calculation of commits is done by reviewing all commits made on the current feature branch since
-branching from `master`. Some CI servers don't respect this and blow away any branch information,
-most notibly, Travis CI. For that reason, Travis CI is not supported or recommended as they use
-`git clone --depth=<number>` cloning which can't be customized and destroys any knowledge of
-`master` and feature branch information.
+branching from `master`. Some CI servers don't respect this and blow away any branch information.
 
 Build servers like [Circle CI](https://circleci.com) are recommended. The builds for this gem are
 done via Circle CI as well.
+
+Travis CI is also supported.
 
 ## Cops
 
