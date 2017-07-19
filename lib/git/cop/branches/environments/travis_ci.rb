@@ -47,6 +47,7 @@ module Git
 
             unless slug.empty?
               shell.capture2e "git remote add -f original_branch https://github.com/#{slug}.git"
+              shell.capture2e "git fetch original_branch #{name}:#{name}"
             end
 
             shell.capture2e "git remote set-branches --add origin master"

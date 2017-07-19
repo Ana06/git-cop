@@ -63,10 +63,12 @@ RSpec.describe Git::Cop::Branches::Environments::TravisCI do
     end
 
     it "answers Git commit SHAs with pull request slug" do
-      remote_command = "git remote add -f original_branch https://github.com/test_slug.git"
+      remote_add_command = "git remote add -f original_branch https://github.com/test_slug.git"
+      remote_fetch_command = "git fetch original_branch test_name:test_name"
 
       allow(described_class).to receive(:pull_request_slug).and_return("test_slug")
-      allow(shell).to receive(:capture2e).with(remote_command)
+      allow(shell).to receive(:capture2e).with(remote_add_command)
+      allow(shell).to receive(:capture2e).with(remote_fetch_command)
 
       expect(subject.shas).to contain_exactly("abc", "def")
     end
