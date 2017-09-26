@@ -13,6 +13,8 @@ module Git
         end
 
         def valid?
+          puts "HOLA ANA: " + commit.subject.to_s
+          puts "HOLA ANA2: " + /\A#{Regexp.union graylist.to_regexp}/.to_s
           return true if fixup_or_squash?
           return true if graylist.empty?
 
